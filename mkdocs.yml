@@ -1,8 +1,8 @@
 site_name: "LoOS-lab"
-site_url: https://ccsgeeks.github.io/
+site_url: https://ccsgeeks.github.io/loos-docs/
 copyright: "Copyright &copy; 2023 - 2024 SCU SRA"
 theme:
-  language: 'en'
+  language: 'zh'
   name: material
   features:
     # - navigation.tabs # 横向导航
@@ -10,7 +10,6 @@ theme:
     - navigation.tabs.sticky # 导航选项卡将锁定在标题下方，并在向下滚动时始终保持可见
     - navigation.tracking # 在url中使用标题定位锚点
     - content.code.select # Code Block Copy Button
-    - content.code.select # Select
 
 markdown_extensions:
   - extra
@@ -65,3 +64,12 @@ nav:
   - 实验二: lab2/index.md
   - 实验三: lab3/index.md
   - 实验四: lab4/index.md
+
+# 添加网站图标配置
+favicon: assets/favicon.png
+logo: assets/logo.png
+
+# 添加仓库链接
+repo_name: CCSGeeks/loos-docs
+repo_url: https://github.com/CCSGeeks/loos-docs
+edit_uri: edit/main/docs/
