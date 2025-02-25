@@ -53,3 +53,15 @@ extra_javascript:
 
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css
+
+nav:
+  - 课程主页: index.md
+  - 实验零:初识linux: 
+    - shell: lab0/shell.md
+    - make 和 makefile: lab0/make.md
+    - git: lab0/git.md
+    - gdb: lab0/gdb.md
+  - 实验一: lab1/index.md
+  - 实验二: lab2/index.md
+  - 实验三: lab3/index.md
+  - 实验四: lab4/index.md
