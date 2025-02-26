@@ -612,7 +612,7 @@
   
 
 
-<h1 id="git">GIT</h1>
+<h1 id="git">Git</h1>
 <p>Git 是一个免费、开源的分布式版本控制系统，非常推荐大家掌握必要的 Git 操作，这对大家协作进行大作业的开发非常有效。</p>
 <h2 id="git_1">Git 有哪些好处？</h2>
 <ul>
@@ -625,10 +625,10 @@
 <ol>
 <li>初始化仓库
 <pre class="highlight"><code class="language-bash">git init          # 本地新建仓库
-git clone &lt;URL&gt;   # 克隆远程仓库（如GitHub/GitLab项目）:cite[9]</code></pre></li>
+git clone &lt;URL&gt;   # 克隆远程仓库（如GitHub/GitLab项目）</code></pre></li>
 <li>提交更改
 <pre class="highlight"><code class="language-bash">git add .          # 添加所有修改到暂存区
-git commit -m "feat: add new feature"  # 提交并附规范化的提交信息:cite[9]
+git commit -m "feat: add new feature"  # 提交并附规范化的提交信息
 git push origin main  # 推送至远程仓库</code></pre>
 commit 可以一次提交很多文件，所以可以多次 add 不同的文件。不过，你可以在仓库目录下编写一个名为 .gitignore 的文本文件，并将不需要维护版本的文件/文件夹的相对路径逐行写入，这可以避免维护对项目版本无影响的文件，如人工智能项目中的模型文件就可以避免维护。</li>
 <li>拉取与更新
@@ -643,7 +643,7 @@ git fetch origin     # 仅获取远程变更记录（不自动合并）</code></
 git checkout -b dev      # 创建并切换到新分支
 git merge dev            # 将dev分支合并到当前分支
 git branch -d dev        # 删除本地分支
-git push origin --delete dev  # 删除远程分支:cite[9]</code></pre></li>
+git push origin --delete dev  # 删除远程分支</code></pre></li>
 <li>解决冲突: 合并时若发生冲突，手动编辑文件后执行：
 <pre class="highlight"><code class="language-bash">git add .
 git commit -m "fix: resolve merge conflict"</code></pre></li>
@@ -653,12 +653,12 @@ git commit -m "fix: resolve merge conflict"</code></pre></li>
 <li>
 <p>关联远程仓库
 <pre class="highlight"><code class="language-bash">git remote add origin &lt;URL&gt;    # 添加远程仓库（默认命名origin）
-git remote -v                 # 查看关联的远程仓库:cite[9]</code></pre></p>
+git remote -v                 # 查看关联的远程仓库</code></pre></p>
 </li>
 <li>
 <p>多人协作流程
 <pre class="highlight"><code class="language-bash">git fetch upstream      # 获取上游仓库更新（如团队主仓库）
-git rebase upstream/main  # 变基以保持提交历史线性:cite[9]</code></pre></p>
+git rebase upstream/main  # 变基以保持提交历史线性</code></pre></p>
 </li>
 </ol>
 <h2 id="_4">撤销与回退</h2>

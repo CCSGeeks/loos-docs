@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#shell" class="md-skip">
+        <a href="#linux" class="md-skip">
           跳转至
         </a>
       
@@ -320,7 +320,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#linux" class="md-nav__link">
+  <a href="#linux_1" class="md-nav__link">
     <span class="md-ellipsis">
       Linux常见命令
     </span>
@@ -389,7 +389,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#shell_1" class="md-nav__link">
+  <a href="#shell" class="md-nav__link">
     <span class="md-ellipsis">
       Shell 脚本
     </span>
@@ -399,7 +399,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#shell_2" class="md-nav__link">
+  <a href="#shell_1" class="md-nav__link">
     <span class="md-ellipsis">
       Shell 脚本概述
     </span>
@@ -408,7 +408,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#shell_3" class="md-nav__link">
+  <a href="#shell_2" class="md-nav__link">
     <span class="md-ellipsis">
       Shell 脚本基础
     </span>
@@ -673,7 +673,7 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#linux" class="md-nav__link">
+  <a href="#linux_1" class="md-nav__link">
     <span class="md-ellipsis">
       Linux常见命令
     </span>
@@ -742,7 +742,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#shell_1" class="md-nav__link">
+  <a href="#shell" class="md-nav__link">
     <span class="md-ellipsis">
       Shell 脚本
     </span>
@@ -752,7 +752,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#shell_2" class="md-nav__link">
+  <a href="#shell_1" class="md-nav__link">
     <span class="md-ellipsis">
       Shell 脚本概述
     </span>
@@ -761,7 +761,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#shell_3" class="md-nav__link">
+  <a href="#shell_2" class="md-nav__link">
     <span class="md-ellipsis">
       Shell 脚本基础
     </span>
@@ -858,32 +858,40 @@
   
 
 
-<h1 id="shell">SHELL</h1>
+<h1 id="linux">初识 Linux</h1>
 <hr />
-<h2 id="linux">Linux常见命令</h2>
-<p>如ls、cd 、mkdir、torch、rm、mv、clear、grep、find、cat、shutdown等。
-请自行练习必要的Linux命令，达到初步熟练掌握的程度（不需要死记硬背，可以利用man命令、网络搜索和大语言模型）</p>
+<h2 id="linux_1">Linux常见命令</h2>
+<p>如ls、cd 、mkdir、touch、rm、mv、clear、grep、find、cat、shutdown等。
+请自行练习必要的Linux命令，达到初步熟练掌握的程度(不需要死记硬背，可以利用man命令、网络搜索和大语言模型)</p>
 <hr />
 <h2 id="io">I/O 重定向与管道</h2>
-<p>一般情况下命令从标准输入（stdin）读取输入，并输出到标准输出（stdout），默认情况下两者都是你的终端。使用重定向可以让命令从文件读取输入/输出到文件。下面是以 echo 为例的重定向输出：</p>
-<pre class="highlight"><code class="language-shell">$ echo "Hello Linux!" &gt; output_file # 将输出写入到文件（覆盖原有内容）
-$ cat output_file
-Hello Linux!
-$ echo "rewrite it" &gt; output_file
-$ cat output_file # 可以看到原来的 Hello Linux! 被覆盖了。
-rewrite it
-$ echo "append it" &gt;&gt; output_file # 将输出追加到文件（不会覆盖原有内容）
-$ cat output_file
-rewrite it
-append it</code></pre>
-<p>无论是 &gt; 还是 &gt;&gt;，当输出文件不存在时都会创建该文件。</p>
-<p>重定向输入使用符号 &lt;：</p>
-<p><pre class="highlight"><code class="language-shell">command &lt; inputfile
-command &lt; inputfile &gt; outputfile</code></pre>
-除了 stdin 和 stdout 还有标准错误（stderr），他们的编号分别是 0、1、2。stderr 可以用 2&gt; 重定向（注意数字 2 和 &gt; 之间没有空格）。使用 2&gt;&amp;1 可以将 stderr 合并到 stdout。</p>
+<p>一般情况下命令从标准输入(stdin)读取输入，并输出到标准输出(stdout)，默认情况下两者都是你的终端。使用重定向可以让命令从文件读取输入/输出到文件。</p>
+<p>假设你有一个文件 <code>numbers.txt</code>，内容如下：
+<pre class="highlight"><code>3
+1
+4
+1
+5
+9
+2
+6</code></pre>
+你想对这个文件中的数字进行排序，可以使用 <code>sort</code> 命令，并通过输入重定向将文件内容传递给 sort。
+<pre class="highlight"><code class="language-bash">sort &lt; numbers.txt
+1
+1
+2
+3
+4
+5
+6
+9</code></pre>
+输出结果也可以通过输出重定向传递给 sorted_numbers.txt
+<pre class="highlight"><code class="language-bash">sort &lt; numbers.txt &gt; sorted_numbers.txt</code></pre>
+输出结果会保存到 sorted_numbers.txt 文件中。如果希望追加内容而不是覆盖，可以使用 &gt;&gt; 无论是 &gt; 还是 &gt;&gt;，当输出文件不存在时都会创建该文件。</p>
+<p>除了 stdin 和 stdout 还有标准错误(stderr)，他们的编号分别是 0、1、2。(stderr) 可以用 2&gt; 重定向(注意数字 2 和 &gt; 之间没有空格)。使用 2&gt;&amp;1 可以将 stderr 合并到 stdout。</p>
 <hr />
 <h2 id="_1">管道</h2>
-<p>管道（pipe），操作符 |，作用为将符号左边的命令的 stdout 接到之后的命令的 stdin。管道不会处理 stderr。管道是类 UNIX 操作系统中非常强大的工具。通过管道，我们可以将实现各类小功能的程序拼接起来干大事。</p>
+<p>管道(pipe)，操作符 |，作用为将符号左边的命令的 stdout 接到之后的命令的 stdin。管道不会处理 stderr。管道是类 UNIX 操作系统中非常强大的工具。通过管道，我们可以将实现各类小功能的程序拼接起来干大事。</p>
 <p>示例如下：
 <pre class="highlight"><code class="language-shell">$ ls / | grep bin  # 筛选 ls / 输出中所有包含 bin 字符串的行
 bin
@@ -896,19 +904,19 @@ sbin</code></pre></p>
 <li>比较两段文本的不同之处</li>
 <li>查看文本的开头几行和最后几行</li>
 </ul>
-<p>下面介绍如何在 shell 中做到这些事情。</p>
+<p>下面介绍如何在 <code>shell</code> 中做到这些事情。</p>
 <h3 id="wc">文本统计：wc</h3>
-<p>wc 是文本统计的常用工具，它可以输出文本的行数、单词数与字符（字节）数。
+<p><code>wc</code> 是文本统计的常用工具，它可以输出文本的行数、单词数与字符(字节)数。
 <pre class="highlight"><code class="language-shell">$ wc file
      427    2768   20131 file</code></pre></p>
 <h3 id="grep">文本查找：grep</h3>
-<p>grep 命令可以查找文本中的字符串：
+<p><code>grep</code> 命令可以查找文本中的字符串：
 <pre class="highlight"><code class="language-shell">$ grep 'hello' file  # 查找文件 file 中包含 hello 的行
 $ ls | grep 'file'  # 查找当前目录下文件名包含 file 的文件
-$ grep -i 'Systemd' file  # 查找文件 file 中包含 Systemd 的行（忽略大小写）
+$ grep -i 'Systemd' file  # 查找文件 file 中包含 Systemd 的行(忽略大小写)
 $ grep -R 'hello' .  # 递归查找当前目录下内容包含 hello 的文件</code></pre></p>
 <h3 id="diff">文本比较：diff</h3>
-<p>diff 工具用于比较两个文件的不同，并列出差异。
+<p><code>diff</code> 工具用于比较两个文件的不同，并列出差异。
 <pre class="highlight"><code class="language-shell">$ echo hello &gt; file1
 $ echo hallo &gt; file2
 $ diff file1 file1
@@ -918,21 +926,21 @@ $ diff file1 file2
 ---
 &gt; hallo</code></pre></p>
 <hr />
-<h2 id="shell_1">Shell 脚本</h2>
-<h3 id="shell_2">Shell 脚本概述</h3>
-<p>Shell 脚本是基于文本的命令集合，通过 Shell 解释器（如 Bash）执行，能够自动化完成系统管理、文件操作、任务调度等复杂任务。其特点包括：</p>
+<h2 id="shell">Shell 脚本</h2>
+<h3 id="shell_1">Shell 脚本概述</h3>
+<p>Shell 脚本是基于文本的命令集合，通过 Shell 解释器(如 Bash)执行，能够自动化完成系统管理、文件操作、任务调度等复杂任务。其特点包括：</p>
 <ul>
 <li>
 <p>灵活高效：直接调用系统命令，无需编译；</p>
 </li>
 <li>
-<p>跨平台性：适配类 UNIX 系统（如 Linux、macOS）；</p>
+<p>跨平台性：适配类 UNIX 系统(如 Linux、macOS)；</p>
 </li>
 <li>
 <p>开源文化：与 Linux 生态深度集成，支持社区工具链扩展。</p>
 </li>
 </ul>
-<h3 id="shell_3">Shell 脚本基础</h3>
+<h3 id="shell_2">Shell 脚本基础</h3>
 <h4 id="1">1. 脚本结构</h4>
 <pre class="highlight"><code class="language-shell">#!/bin/bash          # Shebang 行，指定解释器
 # 注释：打印 Hello World
@@ -940,7 +948,7 @@ echo "Hello World"   # 输出命令</code></pre>
 <h4 id="2">2. 变量与参数</h4>
 <ul>
 <li>
-<p>变量定义：无需声明类型，直接赋值（如 name="Alice"）；</p>
+<p>变量定义：无需声明类型，直接赋值(如 name="Alice")；</p>
 </li>
 <li>
 <p>环境变量：通过 $PATH、$HOME 等访问系统变量；</p>
@@ -950,7 +958,7 @@ echo "Hello World"   # 输出命令</code></pre>
 </li>
 </ul>
 <h4 id="3">3. 控制结构</h4>
-<pre class="highlight"><code class="language-shell"># 条件判断
+<pre class="highlight"><code class="language-bash"># 条件判断
 if [ $num -gt 10 ]; then
     echo "大于 10"
 else
@@ -974,7 +982,7 @@ for file in *.log; do
     mv "$file" "${file%.log}.bak"
 done</code></pre>
 <h4 id="2_1">2. 系统管理</h4>
-<p>修改软件源（使用 sed 替换文本）：
+<p>修改软件源(使用 sed 替换文本)：
 <pre class="highlight"><code class="language-shell">sudo sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list  </code></pre></p>
 
 
